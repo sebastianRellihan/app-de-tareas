@@ -1,0 +1,32 @@
+[
+ {
+  "titulo": "Practicar el switch",
+  "descripcion": "Entender como se usa",
+  "estado": "Pendiente"
+ },
+ {
+  "titulo": "Practicar el for",
+  "descripcion": "Entender como se usa",
+  "estado": "En progreso"
+ },
+ {
+  "titulo": "Objeto literal vs JSON",
+  "descripcion": "Entender como se usa",
+  "estado": "Pendiente"
+ },
+ {
+  "titulo": "Refactorear con un forEach()",
+  "descripcion": "Magic magic magic",
+  "estado": "Terminado"
+ },
+ {
+  "titulo": "crear tarea",
+  "descripcion": "probando de crear una tarea nueva",
+  "estado": "Terminado"
+ },
+ {
+  "titulo": "Leer material PG",
+  "descripcion": "Tengo que estudiar el contenido del nuevo modulo que se libero en Playground",
+  "estado": "Pendiente"
+ }
+]
