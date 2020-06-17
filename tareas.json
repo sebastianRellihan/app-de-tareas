@@ -28,5 +28,10 @@
   "titulo": "Leer material PG",
   "descripcion": "Tengo que estudiar el contenido del nuevo modulo que se libero en Playground",
   "estado": "Pendiente"
+ },
+ {
+  "titulo": "Prueba",
+  "descripcion": "Probando de crear una nueva tarea",
+  "estado": "En progreso"
  }
 ]

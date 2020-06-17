@@ -141,7 +141,7 @@ function completar(title) {
             return elemento;
         }
     });
-    // Me di cuenta que si no se encontraba no estaba haiendo ni informando nada, entonces lantie lo siguiente
+    // Me di cuenta que si no se encontraba no estaba haiendo ni informando nada, entonces plantie lo siguiente
     if(completar != tareas) {
         escribirArchivoJSON(completar);
     } else{
