@@ -144,8 +144,8 @@ function completar(title) {
     // Me di cuenta que si no se encontraba no estaba haiendo ni informando nada, entonces plantie lo siguiente
     if(completar != tareas) {
         escribirArchivoJSON(completar);
-    } else{
-        console.log('No pude encontrar la tarea que queres completar'); // Por que no se imprime?????????
+    }else {
+        console.log(chalk.bgRedBright.black('No pude encontrar la tarea que queres completar')); // Por que no se imprime?????????
     }   
 }
 // Crear método detalle
