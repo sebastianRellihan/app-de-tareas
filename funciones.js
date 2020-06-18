@@ -13,6 +13,7 @@ let tareas = leerArchivoJSON();
 // - La función va a recibir un array
 // - Van a convertir el array a JSON
 // - Usando fs.writeFileSync van a escribir el archivo JSON
+
 function escribirArchivoJSON(array) {
     let arrayJson = JSON.stringify(array, null, ' ');
     fs.writeFileSync('./tareas.json', arrayJson);
@@ -49,6 +50,7 @@ function terminadas() {
         console.log(chalk.inverse(' ► ', element.titulo + ' - ' )+  chalk.black.bgGreenBright('(' + element.estado + ')'));
     });
 }
+
 // Microdesafío
 // 1. Atajar el caso de 'crear'
 // 2. Hacer un console.log() de el titulo y de la descripción
@@ -58,6 +60,7 @@ function terminadas() {
 //     "descripcion": "con su descripción",
 //     "estado": "pendiente"
 //    }
+
 function crear(titulo = '', descripcion = '', estado = 'Pendiente') {
     if (titulo.length > 5) {
         let tareaNueva = {
@@ -72,12 +75,14 @@ function crear(titulo = '', descripcion = '', estado = 'Pendiente') {
         console.log(chalk.bgYellowBright.black('Debes ingresar un título y debe tener al menos 5 caracteres'));
     }
 }
+
 // Micro desafío
 // 1. Atajar el caso de 'borrar'
 // 2. Vamos a recorrer el array de tareas
 //  - usar filter()
 // 3. Vamos a filtrar la tarea que corresponda
 // 4. Vamos a guardar los cambios
+
 function borrar(title) {
     let tareasActualizadas = tareas.filter(tareas => title !== tareas.titulo);   
     if (tareas.length !== tareasActualizadas.length) {
@@ -87,11 +92,13 @@ function borrar(title) {
         console.log(chalk.bgYellowBright.black('No encontré la tarea que estas buscando :-/'));
     }
 }
+
 // Micro desafío
 // 1. Crear función listar
 // Toma como parámetro opcional el estado (pendientes, terminadas, etc)
 // - Si llega el estado lista solo las de ese estado
 // - Si no llega el estado, lista todas
+
 function listar(estado) {
     switch (estado) {
         case undefined:
@@ -119,6 +126,7 @@ function listar(estado) {
             break;
     }
 }
+
 // Micro desafío
 // 1. Atajar el caso de 'completar'
 // 2. Vamos a recorrer el array de tareas
@@ -126,28 +134,71 @@ function listar(estado) {
 //  - usar un if()
 // 3. Vamos a modificar la tarea que corresponda
 // 4. Vamos a guardar los cambios
+
+// Primera solucion para hacer la funcion completar que se me ocurrio
+
+// function completar(title) {
+//     let completar = tareas.map(elemento => {
+//         if (elemento.titulo == title) {
+//             let completo = {
+//                 titulo: elemento.titulo,
+//                 descripcion: elemento.descripcion,
+//                 estado: 'Terminado',
+//             }
+//             elemento = completo;
+//             console.log(chalk.bgGreenBright.black('Tarea completada!'));            
+//             return elemento;
+//         } else {                      
+//             return elemento;
+//         }
+//     }); 
+//     // Me di cuenta que si no se encontraba no estaba haciendo ni informando nada, entonces plantie lo siguiente
+//     if(JSON.stringify(completar) != JSON.stringify(tareas)) {
+//         escribirArchivoJSON(completar);
+//     }else {
+//         console.log(chalk.bgRedBright.black('No pude encontrar la tarea que queres completar'));
+//     }      
+// }
+
+// Otra forma de resolverlo 
+
+// function completar(title) {
+//     let band = false;
+//     let completar = tareas.map(elemento => {
+//         if (elemento.titulo == title) {
+//             let completo = {
+//                 titulo: elemento.titulo,
+//                 descripcion: elemento.descripcion,
+//                 estado: 'Terminado',
+//             }
+//             band = true;
+//             elemento = completo;
+//             console.log(chalk.bgGreenBright.black('Tarea completada!'));            
+//             return elemento;
+//         } else {                      
+//             return elemento;
+//         }
+//     }); 
+//     // Me di cuenta que si no se encontraba no estaba haciendo ni informando nada, entonces plantie lo siguiente
+//     if(band) {
+//         escribirArchivoJSON(completar);
+//     }else {
+//         console.log(chalk.bgRedBright.black('No pude encontrar la tarea que queres completar'));
+//     } 
+// }
+
+// Otra forma de resolverlo X2
 function completar(title) {
-    let completar = tareas.map(elemento => {
-        if (elemento.titulo == title) {
-            let completo = {
-                titulo: elemento.titulo,
-                descripcion: elemento.descripcion,
-                estado: 'Terminado',
-            }
-            elemento = completo;
-            console.log(chalk.bgGreenBright.black('Tarea completada!'));            
-            return elemento;
-        } else {                      
-            return elemento;
-        }
-    });
-    // Me di cuenta que si no se encontraba no estaba haiendo ni informando nada, entonces plantie lo siguiente
-    if(completar != tareas) {
-        escribirArchivoJSON(completar);
-    }else {
-        console.log(chalk.bgRedBright.black('No pude encontrar la tarea que queres completar')); // Por que no se imprime?????????
-    }   
+    let indice = tareas.findIndex(elem => elem.titulo == title);
+    if(indice != -1) {
+        tareas[indice].estado = 'Terminado';
+        escribirArchivoJSON(tareas);
+        console.log(chalk.bgGreenBright.black('Tarea completada!'));  
+    } else {
+        console.log(chalk.bgRedBright.black('No pude encontrar la tarea que queres completar'));
+    }
 }
+
 // Crear método detalle
 // La función detalle toma un título por parámetro
 // Busca la tarea por título (investiguen el método find() ;-))
@@ -163,6 +214,7 @@ function detalle(title) {
         console.log(chalk.bgBlueBright.black('Estado:', find.estado));
     }
 }
+
 module.exports = {
     todas, // todas: todas // si el nombre de nuestra propiedad es igual al valor puede esribirse asi
     pendientes, // pendientes: pendientes
