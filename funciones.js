@@ -115,7 +115,7 @@ function listar(estado) {
         case 'pendientes':
             pendientes();
             break;
-        case 'en progreso':
+        case 'progreso':
             progreso();
             break;
         case 'terminadas':

@@ -20,18 +20,18 @@
   "estado": "Terminado"
  },
  {
-  "titulo": "crear tarea",
-  "descripcion": "probando de crear una tarea nueva",
-  "estado": "Terminado"
- },
- {
   "titulo": "Leer material PG",
   "descripcion": "Tengo que estudiar el contenido del nuevo modulo que se libero en Playground",
   "estado": "Pendiente"
  },
  {
-  "titulo": "Prueba",
-  "descripcion": "Probando de crear una nueva tarea",
+  "titulo": "Nueva tarea",
+  "descripcion": "Estoy creando una tarea",
   "estado": "Terminado"
+ },
+ {
+  "titulo": "Nueva tarea",
+  "descripcion": "Estoy creando una tarea",
+  "estado": "Pendiente"
  }
 ]
