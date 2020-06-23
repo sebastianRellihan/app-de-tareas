@@ -37,12 +37,12 @@ function pendientes() {
     });
 }
 
-function progreso() {
-    let filtroEnProgreso = tareas.filter(element => element.estado == 'En progreso');
-    filtroEnProgreso.forEach(element => {
-        console.log(chalk.inverse(' ► ', element.titulo + ' - ' )+  chalk.black.bgYellowBright('(' + element.estado + ')'));
-    });
-}
+// function progreso() {
+//     let filtroEnProgreso = tareas.filter(element => element.estado == 'En progreso');
+//     filtroEnProgreso.forEach(element => {
+//         console.log(chalk.inverse(' ► ', element.titulo + ' - ' )+  chalk.black.bgYellowBright('(' + element.estado + ')'));
+//     });
+// }
 
 function terminadas() {
     let filtroTerminadas = tareas.filter(element => element.estado == 'Terminado');
@@ -216,9 +216,14 @@ function detalle(title) {
 }
 
 module.exports = {
-    todas, // todas: todas // si el nombre de nuestra propiedad es igual al valor puede esribirse asi
-    pendientes, // pendientes: pendientes
-    progreso, // progreso: progresp
+    todas: todas, 
+    pendientes, // si el nombre de nuestra propiedad es igual al valor puede esribirse asi...
+    progreso() {
+        let filtroEnProgreso = tareas.filter(element => element.estado == 'En progreso');
+        filtroEnProgreso.forEach(element => {
+            console.log(chalk.inverse(' ► ', element.titulo + ' - ' )+  chalk.black.bgYellowBright('(' + element.estado + ')'));
+        });
+    }, // tambien se pueden escribir adentro del module exports las funciones
     terminadas, 
     crear,
     borrar,

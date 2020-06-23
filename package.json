@@ -1,0 +1,22 @@
+{
+  "name": "app-tareas",
+  "version": "1.0.0",
+  "description": "Aplicacion de tareas creada en una clase del curso de Full Stack Node en Digital House",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebastianRellihan/app-de-tareas.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sebastianRellihan/app-de-tareas/issues"
+  },
+  "homepage": "https://github.com/sebastianRellihan/app-de-tareas#readme",
+  "dependencies": {
+    "chalk": "^4.1.0"
+  }
+}
