@@ -2,8 +2,11 @@ const fs = require('fs');
 const chalk = require('chalk');
 
 function leerArchivoJSON() {
-    let tareasJson = fs.readFileSync('./tareas.json', 'utf-8');
-    return JSON.parse(tareasJson);
+    if(fs.existsSync('./tareas.json')) {
+        let tareasJson = fs.readFileSync('./tareas.json', 'utf-8');
+        return JSON.parse(tareasJson);
+    }
+    return [];
 }
 
 let tareas = leerArchivoJSON();
